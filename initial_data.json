@@ -1,0 +1,188 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$hNOxvmtWqXpWuBOenoEWvm$ESRRIRv/ZD6X1q4D100dV1pslPJ3IfdnRm4/eohVKQ8=",
+    "last_login": "2026-05-22T01:56:08.377Z",
+    "is_superuser": false,
+    "username": "Алексей",
+    "first_name": "",
+    "last_name": "",
+    "email": "pao@r-19.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-21T03:28:21.094Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$wHm6Dd2vdVgZmcriQsgNFH$l6j3UYEdDm9g2YWfnukNjtiqd0MuU9i27/jR6QsZ3tM=",
+    "last_login": "2026-05-22T01:48:04.323Z",
+    "is_superuser": false,
+    "username": "Сергей",
+    "first_name": "",
+    "last_name": "",
+    "email": "sks@r-19.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-21T03:35:11.835Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$M8ObnADLAepPUhyND8UAyx$gxJb7flxQseC4H6RyCqsVy7UPCu+YULvYXWNcEiG+fU=",
+    "last_login": "2026-05-22T01:53:36.132Z",
+    "is_superuser": false,
+    "username": "Константин",
+    "first_name": "",
+    "last_name": "",
+    "email": "kek@r-19.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-21T07:26:11.527Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "em6p20awc5vwfx6fd7o8y4fs8adhv19k",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP_iuYpwiAlh7N43RCZ2Cm0VJAJT1b9XSAztene6N0TetynuVdc4CwyAcPllI6enlkPIg8t9MWkp2zqP5kjMaau5LaKv69n-DSauEwygWW2mhj0mny2JazkQoe9RxdqghM47ouRGxb4JXeC2yZmx67wQsoPPF9nQN0c:1wQF7Q:5j9gbso0R7-2aWIqx1A6_mSumfC9Xlf3lAM8-S2YbtQ",
+    "expire_date": "2026-06-05T01:56:08.381Z"
+  }
+},
+{
+  "model": "blog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Путешествие"
+  }
+},
+{
+  "model": "blog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Юмор"
+  }
+},
+{
+  "model": "blog.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Позновательный"
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "Алексей"
+    ],
+    "avatar": "",
+    "subscriptions": [
+      [
+        "Константин"
+      ]
+    ]
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Сергей"
+    ],
+    "avatar": "",
+    "subscriptions": [
+      [
+        "Алексей"
+      ]
+    ]
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "Константин"
+    ],
+    "avatar": "",
+    "subscriptions": [
+      [
+        "Алексей"
+      ]
+    ]
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 11,
+  "fields": {
+    "author": [
+      "Алексей"
+    ],
+    "title": "Возможности блога",
+    "content": "В разделе главная выводятся все посты всех авторов с публичным доступом. Есть возможность сортировать посты по тэгам. На понравившегося автора можно подписаться. \r\n\r\nВ разделе \"Моя лента\" появляются посты авторов, на которых вы подписались.  Так же туда попадают посты авторов с закрытым доступом по запросу. Доступ можно запросить, и если автор его одобрит, вы получите доступ до поста.\r\n\r\nТэги можно создавать самому, или применять уже имеющиеся.",
+    "created_at": "2026-05-22T01:47:41.674Z",
+    "updated_at": "2026-05-22T01:47:41.674Z",
+    "access": "public",
+    "tags": []
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 12,
+  "fields": {
+    "author": [
+      "Сергей"
+    ],
+    "title": "Пост для наполнения ленты",
+    "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "created_at": "2026-05-22T01:50:24.105Z",
+    "updated_at": "2026-05-22T01:50:24.105Z",
+    "access": "public",
+    "tags": [
+      4
+    ]
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 13,
+  "fields": {
+    "author": [
+      "Константин"
+    ],
+    "title": "Пользовательское соглашение",
+    "content": "Самая большая ложь 21 века - «Я прочёл и принимаю условия\r\nпользовательского соглашения»",
+    "created_at": "2026-05-22T01:53:57.518Z",
+    "updated_at": "2026-05-22T01:53:57.518Z",
+    "access": "public",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 3,
+  "fields": {
+    "post": 11,
+    "author": [
+      "Сергей"
+    ],
+    "content": "Так же добавлена функция написания комментариев!",
+    "created_at": "2026-05-22T01:48:41.991Z"
+  }
+}
+]
