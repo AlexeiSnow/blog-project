@@ -1,0 +1,76 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ profile_user.username }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                         style="width:64px; height:64px; font-size:1.5rem; flex-shrink:0;">
+                        {{ profile_user.username|first|upper }}
+                    </div>
+                    <div>
+                        <h1 class="h4 mb-1">{{ profile_user.username }}</h1>
+                        <p class="text-muted mb-0 small">Постов: {{ posts.count }}</p>
+                    </div>
+                    {% if user == profile_user %}
+                    <div class="ms-auto">
+                        <a href="/profile/edit/" class="text-muted" style="font-size: 1.2rem;" title="Редактировать профиль">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                    {% if user.is_authenticated and user != profile_user %}
+                    <div class="ms-auto">
+                        <a href="/subscribe/{{ profile_user.id }}/" class="btn {% if is_subscribed %}btn-outline-secondary{% else %}btn-primary{% endif %} btn-sm">
+                            {% if is_subscribed %}
+                                <i class="bi bi-person-dash"></i> Отписаться
+                            {% else %}
+                                <i class="bi bi-person-plus"></i> Подписаться
+                            {% endif %}
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        
+        <h2 class="h5 mb-3">Посты</h2>
+        {% for post in posts %}
+        <div class="card post-card shadow-sm mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="card-title h6 mb-1">
+                        <a href="/post/{{ post.id }}/" class="text-decoration-none text-white stretched-link">{{ post.title }}</a>
+                    </h3>
+                    {% if post.access == 'private' %}
+                        <span class="badge bg-warning text-dark ms-2 position-relative"><i class="bi bi-lock"></i> Скрытый</span>
+                    {% endif %}
+                </div>
+                <p class="text-muted small mb-0">
+                    <i class="bi bi-clock"></i> {{ post.created_at|date:"d.m.Y H:i" }}
+                </p>
+                {% if post.tags.all %}
+                <div class="mt-2">
+                    {% for tag in post.tags.all %}
+                        <span class="badge bg-secondary tag-badge me-1">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <div class="text-center py-4 text-white">
+            <i class="bi bi-journal-x" style="font-size: 2rem;"></i>
+            <p class="mt-2">Постов пока нет</p>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

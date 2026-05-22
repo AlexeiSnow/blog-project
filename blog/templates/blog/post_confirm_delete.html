@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block title %}Удалить пост{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-body p-4 text-center">
+                <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+                <h2 class="h4 mt-3">Удалить пост?</h2>
+                <p class="text-muted">«{{ post.title }}»</p>
+                <p class="text-danger small">Это действие необратимо</p>
+                <form method="post" class="d-flex gap-2 justify-content-center mt-3">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Да, удалить
+                    </button>
+                    <a href="/post/{{ post.id }}/" class="btn btn-outline-secondary">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
