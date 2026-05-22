@@ -1,13 +1,50 @@
 
 ## Установка и запуск
 
-### 1. Клонировать репозиторий
+### Способ 1 — Docker (рекомендуется)
+
+Не требует установки PostgreSQL и настройки окружения. Достаточно иметь установленный [Docker](https://docs.docker.com/get-docker/).
+
+#### 1. Клонировать репозиторий
 ```bash
 git clone https://github.com/AlexeiSnow/blog-project.git
 cd blog-project
 ```
 
-### 2. Создать виртуальное окружение
+#### 2. Запустить проект
+```bash
+docker compose up --build
+```
+
+При первом запуске Docker автоматически:
+- скачает образы Python и PostgreSQL
+- установит зависимости
+- применит миграции
+- загрузит демонстрационные данные
+
+Сайт будет доступен по адресу: http://localhost:8000
+
+#### Остановка
+```bash
+Ctrl + C
+```
+
+Для полной остановки с удалением контейнеров:
+```bash
+docker compose down
+```
+
+---
+
+### Способ 2 — Локальный запуск
+
+#### 1. Клонировать репозиторий
+```bash
+git clone https://github.com/AlexeiSnow/blog-project.git
+cd blog-project
+```
+
+#### 2. Создать виртуальное окружение
 
 **Linux**
 ```bash
@@ -21,12 +58,12 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### 3. Установить зависимости
+#### 3. Установить зависимости
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Настроить PostgreSQL
+#### 4. Настроить PostgreSQL
 
 ```bash
 # Linux
@@ -45,24 +82,26 @@ GRANT ALL ON SCHEMA public TO blog_user;
 \q
 ```
 
-### 5. Создать файл .env
-Создай файл `.env` в корне проекта (рядом с manage.py):
+#### 5. Создать файл .env
+Создай файл `.env` в корне проекта (рядом с `manage.py`):
 
+```
 SECRET_KEY=любой_случайный_набор_символов_от_50_знаков
 DB_PASSWORD=пароль_который_указали_в_шаге_4
 DEBUG=True
+```
 
-### 6. Применить миграции
+#### 6. Применить миграции
 ```bash
 python manage.py migrate
 ```
 
-### 7. Загрузить демонстрационные данные (опционально)
+#### 7. Загрузить демонстрационные данные
 ```bash
-python manage.py loaddata fixtures/initial_data.json
+python manage.py loaddata initial_data.json
 ```
 
-### 8. Запустить сервер
+#### 8. Запустить сервер
 ```bash
 python manage.py runserver
 ```
